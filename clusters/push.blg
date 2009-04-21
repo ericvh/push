@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.4)
+The top-level auxiliary file: push.aux
+The style file: plain.bst
+Database file #1: thesis.bib
+Warning--empty year in amazon:aec
+Warning--empty year in bialecki:hfr
+Warning--empty year in mashman
+Warning--empty year in xargsman
+You've used 15 entries,
+            2118 wiz_defined-function locations,
+            577 strings with 6296 characters,
+and the built_in function-call counts, 4953 in all, are:
+= -- 471
+> -- 269
+< -- 3
++ -- 107
+- -- 92
+* -- 336
+:= -- 856
+add.period$ -- 47
+call.type$ -- 15
+change.case$ -- 91
+chr.to.int$ -- 0
+cite$ -- 19
+duplicate$ -- 191
+empty$ -- 360
+format.name$ -- 92
+if$ -- 1014
+int.to.chr$ -- 0
+int.to.str$ -- 15
+missing$ -- 14
+newline$ -- 78
+num.names$ -- 30
+pop$ -- 100
+preamble$ -- 1
+purify$ -- 75
+quote$ -- 0
+skip$ -- 131
+stack$ -- 0
+substring$ -- 217
+swap$ -- 41
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 60
+warning$ -- 4
+while$ -- 45
+width$ -- 17
+write$ -- 159
+(There were 4 warnings)
