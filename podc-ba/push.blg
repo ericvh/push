@@ -1,66 +1,49 @@
 This is BibTeX, Version 0.99c (Web2C 7.5.4)
 The top-level auxiliary file: push.aux
 The style file: plain.bst
-I couldn't open database file thesis.bib
----line 43 of file push.aux
- : \bibdata{thesis
- :                }
-I'm skipping whatever remains of this command
-I found no database files---while reading file push.aux
-Warning--I didn't find a database entry for "barroso2003wsp"
-Warning--I didn't find a database entry for "bryant2007dis"
-Warning--I didn't find a database entry for "dean2008msd"
-Warning--I didn't find a database entry for "isard2007ddd"
-Warning--I didn't find a database entry for "bialecki:hfr"
-Warning--I didn't find a database entry for "pike2005idp"
-Warning--I didn't find a database entry for "yu2008dsg"
-Warning--I didn't find a database entry for "olston2008pln"
-Warning--I didn't find a database entry for "mcilroy1964paf"
-Warning--I didn't find a database entry for "amazon:aec"
-Warning--I didn't find a database entry for "xargsman"
-Warning--I didn't find a database entry for "mashman"
-Warning--I didn't find a database entry for "koutsofios1999dgd"
-Warning--I didn't find a database entry for "chang2006bds"
-Warning--I didn't find a database entry for "clark1999xpl"
-You've used 0 entries,
+Database file #1: thesis.bib
+Warning--empty year in bialecki:hfr
+Warning--empty year in mashman
+Warning--empty year in xargsman
+You've used 11 entries,
             2118 wiz_defined-function locations,
-            512 strings with 4162 characters,
-and the built_in function-call counts, 18 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            556 strings with 5866 characters,
+and the built_in function-call counts, 3846 in all, are:
+= -- 364
+> -- 213
+< -- 3
++ -- 85
+- -- 74
+* -- 262
+:= -- 657
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 71
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 14
+duplicate$ -- 149
+empty$ -- 278
+format.name$ -- 74
+if$ -- 793
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 11
+missing$ -- 10
+newline$ -- 58
+num.names$ -- 22
+pop$ -- 82
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 59
 quote$ -- 0
-skip$ -- 1
+skip$ -- 102
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 166
+swap$ -- 37
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There were 2 error messages)
+type$ -- 44
+warning$ -- 3
+while$ -- 34
+width$ -- 13
+write$ -- 118
+(There were 3 warnings)
