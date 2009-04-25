@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.4)
+The top-level auxiliary file: push.aux
+The style file: plain.bst
+I couldn't open database file thesis.bib
+---line 43 of file push.aux
+ : \bibdata{thesis
+ :                }
+I'm skipping whatever remains of this command
+I found no database files---while reading file push.aux
+Warning--I didn't find a database entry for "barroso2003wsp"
+Warning--I didn't find a database entry for "bryant2007dis"
+Warning--I didn't find a database entry for "dean2008msd"
+Warning--I didn't find a database entry for "isard2007ddd"
+Warning--I didn't find a database entry for "bialecki:hfr"
+Warning--I didn't find a database entry for "pike2005idp"
+Warning--I didn't find a database entry for "yu2008dsg"
+Warning--I didn't find a database entry for "olston2008pln"
+Warning--I didn't find a database entry for "mcilroy1964paf"
+Warning--I didn't find a database entry for "amazon:aec"
+Warning--I didn't find a database entry for "xargsman"
+Warning--I didn't find a database entry for "mashman"
+Warning--I didn't find a database entry for "koutsofios1999dgd"
+Warning--I didn't find a database entry for "chang2006bds"
+Warning--I didn't find a database entry for "clark1999xpl"
+You've used 0 entries,
+            2118 wiz_defined-function locations,
+            512 strings with 4162 characters,
+and the built_in function-call counts, 18 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 2
+:= -- 7
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 1
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 3
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 2
+(There were 2 error messages)
