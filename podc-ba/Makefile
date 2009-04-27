@@ -1,7 +1,7 @@
 all: push.ps push.pdf
 
 push.ps: push.dvi
-	dvips -o push.ps push.dvi
+	dvips -t letter -o push.ps push.dvi
 
 push.pdf: push.ps
 	ps2pdf push.ps push.pdf
