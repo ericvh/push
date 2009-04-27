@@ -1,5 +1,15 @@
 \begin{thebibliography}{10}
 
+\bibitem{amazon:aec}
+EC~Amazon.
+\newblock {Amazon Elastic Compute Cloud}.
+\newblock {\em aws. amazon. com/ec2}.
+
+\bibitem{appavoo2008pkb}
+J.~Appavoo, V.~Uhlig, and A.~Waterland.
+\newblock {Project Kittyhawk: Building a Global-Scale Computer}.
+\newblock {\em OPERATING SYSTEMS REVIEW}, 42(1):77, 2008.
+
 \bibitem{barroso2003wsp}
 LA~Barroso, J.~Dean, and U.~Holzle.
 \newblock {Web search for a planet: The Google cluster architecture}.
@@ -46,6 +56,13 @@ M.D. McIlroy.
 \newblock {Pipes and filters}.
 \newblock {\em Internal Bell Labs memo, original title lost}, 11, 1964.
 
+\bibitem{xcpu}
+Ron Minnich and Andrey Mirtchovski.
+\newblock Xcpu: a new, 9p-based, process management system for clusters and
+  grids.
+\newblock {\em Cluster Computing, 2006 IEEE International Conference on}, pages
+  1--10, 2006.
+
 \bibitem{olston2008pln}
 C.~Olston, B.~Reed, U.~Srivastava, R.~Kumar, and A.~Tomkins.
 \newblock {Pig latin: a not-so-foreign language for data processing}.
@@ -56,6 +73,12 @@ C.~Olston, B.~Reed, U.~Srivastava, R.~Kumar, and A.~Tomkins.
 R.~Pike.
 \newblock {Interpreting the data: Parallel analysis with Sawzall}.
 \newblock {\em Scientific Programming}, 13(4):277--298, 2005.
+
+\bibitem{evh2008mtags}
+E.~Van~Hensbergen and R.~Minnich.
+\newblock {System Support for Many Task Computing}.
+\newblock {\em Proc. of Workshop on Many-Task Computing on Grids and
+  Supercomputers}, 2008.
 
 \bibitem{yu2008dsg}
 Y.~Yu, M.~Isard, D.~Fetterly, M.~Budiu, U.~Erlingsson, P.K. Gunda, and

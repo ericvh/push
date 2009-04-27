@@ -137,9 +137,8 @@ and then distribute them to a cluster of machines on our network. The command
 is as follows:
 \begin{verbatim}
 push -c '{
-ORS=./blm.dis
-du -an files |< xargs os chasen | awk '{print \$1}' | sort | uniq -c >|
-sort -rn
+  ORS=./blm.dis
+  du -an files |< xargs os chasen | awk '{print \$1}' | sort | uniq -c >| sort -rn
 }'
 \end{verbatim}
 
@@ -161,15 +160,30 @@ counts are "fanned in"(\verb!>|!) to the originating machine which then
 sorts them. 
 
 % status and future work
+We currently have a working prototype of the PUSH shell, which we can use
+to target local distributed clusters, dynamic clusters built using Amazon's
+EC2 cloud~\cite{amazon:aec}, and large scale clusters such as a Blue Gene 
+running the kittyhawk infrastructure~\cite{appavoo2008pkb}.  We are currently
+in the process of evaluating and optimizing performance for a variety of 
+application types.
+
 Because PUSH distributes streaming data over potentially remote links push 
-is prone to causing network congestion between nodes. Tools that better 
-preserve data locality like Plan 9's cfs(a caching user level filesystem) 
-and a distributed databases similar to Google's Bigtable\cite{chang2006bds} 
-manipulated by queries over multipipes would better preserve the locality of data. 
+is prone to causing network congestion between nodes. 
+We are investigating multiple approaches to mitigating this overhead, both
+using by using parallel distributed file systems and/or using distributed
+databases such as Google's Bigtable~\cite{chang2006bds}.
+One research challenge is to find a way to integrate reference to these
+external data resources (or record sets within these resources) with the
+distributed pipelines in a natural fashion.
 
-% need more here summarizing existing performance data, status, and code
-location.
+Another area of ongoing exploration is looking at adding fault tolerance as 
+well as a more automated mechanism for determining how many resources to 
+allocate to a particular problem and automatically adapting that provisioning 
+based on monitoring the changing workload as it executes on the 
+cluster~\cite{evh2008mtags}.
 
+The current source code for PUSH is open source available on Google code
+(http://code.google.com/p/push).
 This work has been supported by the Department of Energy Of Office of Science Operating and Runtime Systems for Extreme Scale Scientific Computation project under contract \#DE-FG02-08ER25851. 
 
 \bibliographystyle{plain}
