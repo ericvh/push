@@ -2,48 +2,49 @@ This is BibTeX, Version 0.99c (Web2C 7.5.4)
 The top-level auxiliary file: push.aux
 The style file: plain.bst
 Database file #1: thesis.bib
+Warning--I didn't find a database entry for "xcpu"
 Warning--empty year in bialecki:hfr
 Warning--empty year in mashman
 Warning--empty year in xargsman
-You've used 11 entries,
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            556 strings with 5866 characters,
-and the built_in function-call counts, 3846 in all, are:
-= -- 364
-> -- 213
+            564 strings with 6004 characters,
+and the built_in function-call counts, 4192 in all, are:
+= -- 399
+> -- 231
 < -- 3
-+ -- 85
-- -- 74
-* -- 262
-:= -- 657
-add.period$ -- 35
-call.type$ -- 11
-change.case$ -- 71
++ -- 92
+- -- 80
+* -- 291
+:= -- 716
+add.period$ -- 38
+call.type$ -- 12
+change.case$ -- 77
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 149
-empty$ -- 278
-format.name$ -- 74
-if$ -- 793
+cite$ -- 15
+duplicate$ -- 160
+empty$ -- 303
+format.name$ -- 80
+if$ -- 862
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 10
-newline$ -- 58
-num.names$ -- 22
-pop$ -- 82
+int.to.str$ -- 12
+missing$ -- 11
+newline$ -- 63
+num.names$ -- 24
+pop$ -- 86
 preamble$ -- 1
-purify$ -- 59
+purify$ -- 64
 quote$ -- 0
-skip$ -- 102
+skip$ -- 109
 stack$ -- 0
-substring$ -- 166
-swap$ -- 37
+substring$ -- 190
+swap$ -- 38
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 44
+type$ -- 48
 warning$ -- 3
-while$ -- 34
-width$ -- 13
-write$ -- 118
-(There were 3 warnings)
+while$ -- 38
+width$ -- 14
+write$ -- 129
+(There were 4 warnings)

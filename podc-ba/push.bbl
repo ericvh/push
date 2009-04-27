@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{barroso2003wsp}
+LA~Barroso, J.~Dean, and U.~Holzle.
+\newblock {Web search for a planet: The Google cluster architecture}.
+\newblock {\em Micro, IEEE}, 23(2):22--28, 2003.
+
 \bibitem{bialecki:hfr}
 A.~Bialecki, M.~Cafarella, D.~Cutting, and O.~O~Malley.
 \newblock {Hadoop: a framework for running applications on large clusters built
