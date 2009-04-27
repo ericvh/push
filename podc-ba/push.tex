@@ -1,7 +1,7 @@
 \documentclass[11pt, letterpaper]{article}
 
 \title{PUSH: a DISC shell}
-\author{Noah Evans \\Nara Institute of Science and Technolgoy \\noah-e@is.naist.jp  \and Eric Van Hensbergen \\IBM Research \\bergevan@us.ibm.com}
+\author{Noah Evans \\Nara Institute of Science and Technology \\noah-e@is.naist.jp  \and Eric Van Hensbergen \\IBM Research \\bergevan@us.ibm.com}
 
 \usepackage{fullpage}
 
@@ -13,7 +13,6 @@
 
 \maketitle
 
-%maybe lead in with something different
 The deluge of huge data sets such those provided by sensor networks, 
 online transactions, and the web provide exciting opportunities for data
 analytics.  The scale of the data makes it impossible to deal with in a
@@ -48,17 +47,14 @@ these smaller tools in pipelines (e.g. 'sort $|$ uniq -c'),
 creating coherent workflow to solve more complicated problems 
 quickly. 
 Tools read from standard input and wrote to standard output, allowing programs 
-to work together in streams \emph{with no explict knowledge of this chaining
+to work together in streams \emph{with no explicit knowledge of this chaining
 built into the program itself}.
 
-% REWORK to contrasting problems of DISC with UNIX pipelines
 One to one pipelines such as those used by a typical UNIX shell, can not be 
 trivially mapped to DISC workflows which incorporate one-to-many, many-to-many,
 and many-to-one data flows. 
-Futhermore, typical UNIX pipeline tools write data according to buffer 
-boundaries instead of record boundaries any attempts to distribute buffered 
-data unmodified from a pipe will fail---the system will fail to notice XML 
-element boundaries or newlines in line based records. 
+Additionally, typical UNIX pipeline tools write data according to buffer 
+boundaries instead of record boundaries.
 As \cite{pike2005idp} notes DISC systems need to be able to cleanly separate 
 input streams into records and then show that the order of these records is 
 independent. 
@@ -80,11 +76,12 @@ shell itself.
 \begin{figure}[htp]
 \centering
 \includegraphics[width=4.5in]{pipestruct.eps}
-\caption{The structure of the PUSH shell. PUSH implements a new form of multiplexed pipelines which all the distribution of record based output to multiple threads of control. This data is first "Fanned out" to multiple pipes by a multiplexor and then it is subsequently "Fanned in" by a de-multiplexor}\label{fig:pipestruct} 
+\caption{The structure of the PUSH shell}
+\label{fig:pipestruct} 
 \end{figure}
 
 We have added two additional pipeline operators, 
-a multiplexing fan-out(\verb!|<![n]), and a coalescing fan-in(\verb!>|!). 
+a multiplexing fan-out(\verb!|<![\emph{n}]), and a coalescing fan-in(\verb!>|!). 
 This combination allows PUSH to distribute I/O to and from multiple
 simultaneous threads of control.
 The fan-out argument \emph{n} specifies the desired degree of parallel 
@@ -92,8 +89,8 @@ threading.  If no argument is specified, the default of spawning a new
 thread per record (up to the limit of available cores) is used.  This can
 also be overriden by command line options or environment variables.
 The pipeline operators provide implicit grouping semantics allowing natural 
-nesting and composability.
-While their complimentary nature usually lead to a symmetric
+nesting and composibility.
+While their complimentary nature usually lead to symmetric
 mappings (where the number of fan-outs equal the number of fan-ins), there is 
 nothing within our implementation which enforces it.
 Normal redirections as well as application specific sources and sinks 
@@ -101,10 +98,10 @@ can provide alternate data paths.
 Remote thread distribution and interconnect are composed and managed
 using synthetic file systems in much the same manner as Xcpu~\cite{xcpu}, 
 pushing the distributed complexity into the middleware in an language and 
-runtime independent fashion.
+runtime neutral fashion.
 
 PUSH also differs from traditional shells by implementing native support for 
-records based input handling over pipelines. This facility is similar to the 
+record based input handling over pipelines. This facility is similar to the 
 argument field separators, IFS and OFS, in traditional shells which use a 
 pattern to determine how to tokenize arguments. PUSH provides two variables, 
 ORS and IRS, which point to record separator modules. These modules 
@@ -115,7 +112,7 @@ The choice of which multipipe to target is left as a decision to the module.
 Different data formats may have different output requirements. 
 Demultiplexing from a multipipe is performed by creating a many to one 
 communications channel within the shell. The shell creates a reader processes 
-which connect to each pipe in the multipipe. When the data reaches an 
+which connects to each pipe in the multipipe. When the data reaches an 
 appropriate record boundary a buffer is passed from the reader to the shell 
 which then writes each record buffer to the output pipeline. 
 
@@ -124,7 +121,6 @@ to apply an analyzer to a large set of files, a "corpus". User programs go
 through each file which contain a list of sentences, one sentence per line. 
 They then tokenize the sentence into words, finding the part of speech and 
 morphology of the words that make up the sentence.
-
 This sort of task maps very well to the DISC model. There are a large number of 
 discrete sets of data whose order is not necessarily important. We need to 
 perform a computationally intensive task on each of the sentences, which are 
@@ -147,10 +143,10 @@ used to ensure that the input and output to distributed pipes are correctly
 aligned to record boundaries. du -n gives a list of the files (note that our 
 du is a bit different from the canonical UNIX du, it replaces much of find's 
 functionality) which are then "fanned out"(\verb!|<!) using a combination 
-of a \emph{multipipe}, an ordered set of pipes, and a \emph{multiplexors} 
+of a \emph{multipipe}, an ordered set of pipes, and a \emph{multiplexor} 
 which determines which pipes are the targets of each unit of output.  
 This fanned out data goes to xargs on other machines which 
-then uses the filenames(sent from the intantiating machine) as arguments to 
+then uses the filenames(sent from the instantiating machine) as arguments to 
 chasen. The du acts as a command driver, fanning out file names to the 
 individual worker machines. The workers then use the filenames input to 
 xargs, which uses the input filenames as arguments to xargs target command. 
@@ -170,7 +166,7 @@ application types.
 Because PUSH distributes streaming data over potentially remote links push 
 is prone to causing network congestion between nodes. 
 We are investigating multiple approaches to mitigating this overhead, both
-using by using parallel distributed file systems and/or using distributed
+by using parallel distributed file systems and/or using distributed
 databases such as Google's Bigtable~\cite{chang2006bds}.
 One research challenge is to find a way to integrate reference to these
 external data resources (or record sets within these resources) with the
@@ -182,9 +178,11 @@ allocate to a particular problem and automatically adapting that provisioning
 based on monitoring the changing workload as it executes on the 
 cluster~\cite{evh2008mtags}.
 
-The current source code for PUSH is open source available on Google code
-(http://code.google.com/p/push).
+PUSH is under active development, but the current source code is open source 
+and available on Google Code (http://code.google.com/p/push).
 This work has been supported by the Department of Energy Of Office of Science Operating and Runtime Systems for Extreme Scale Scientific Computation project under contract \#DE-FG02-08ER25851. 
+
+\pagebreak
 
 \bibliographystyle{plain}
 \bibliography{thesis}
