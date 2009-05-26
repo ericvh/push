@@ -1,19 +1,4 @@
-\begin{thebibliography}{10}
-
-\bibitem{amazon:aec}
-EC~Amazon.
-\newblock {Amazon Elastic Compute Cloud}.
-\newblock {\em aws. amazon. com/ec2}.
-
-\bibitem{appavoo2008pkb}
-J.~Appavoo, V.~Uhlig, and A.~Waterland.
-\newblock {Project Kittyhawk: Building a Global-Scale Computer}.
-\newblock {\em OPERATING SYSTEMS REVIEW}, 42(1):77, 2008.
-
-\bibitem{barroso2003wsp}
-LA~Barroso, J.~Dean, and U.~Holzle.
-\newblock {Web search for a planet: The Google cluster architecture}.
-\newblock {\em Micro, IEEE}, 23(2):22--28, 2003.
+\begin{thebibliography}{1}
 
 \bibitem{bialecki:hfr}
 A.~Bialecki, M.~Cafarella, D.~Cutting, and O.~O~Malley.
@@ -27,22 +12,10 @@ R.E. Bryant.
 \newblock Technical report, Tech Report CMU-CS-07-128, Carnegie Mellon
   University, School of Computer Science, 2007.
 
-\bibitem{chang2006bds}
-F.~Chang, J.~Dean, S.~Ghemawat, W.C. Hsieh, D.A. Wallach, M.~Burrows,
-  T.~Chandra, A.~Fikes, and R.E. Gruber.
-\newblock {Bigtable: A distributed storage system for structured data}.
-\newblock In {\em Proceedings of the 7th USENIX Symposium on Operating Systems
-  Design and Implementation (OSDI’06)}, 2006.
-
 \bibitem{dean2008msd}
 J.~Dean and S.~Ghemawat.
 \newblock {MapReduce: Simplified Data Processing on Large Clusters}.
 \newblock {\em Communications of the ACM}, 51(01):7, 2008.
-
-\bibitem{mashman}
-Bruce Ellis.
-\newblock {Mash Manual Page}.
-\newblock {\em Vita Nuova Ltd}.
 
 \bibitem{isard2007ddd}
 M.~Isard, M.~Budiu, Y.~Yu, A.~Birrell, and D.~Fetterly.
@@ -50,18 +23,6 @@ M.~Isard, M.~Budiu, Y.~Yu, A.~Birrell, and D.~Fetterly.
   blocks}.
 \newblock In {\em Proceedings of the 2007 conference on EuroSys}, pages 59--72.
   ACM Press New York, NY, USA, 2007.
-
-\bibitem{mcilroy1964paf}
-M.D. McIlroy.
-\newblock {Pipes and filters}.
-\newblock {\em Internal Bell Labs memo, original title lost}, 11, 1964.
-
-\bibitem{xcpu}
-Ron Minnich and Andrey Mirtchovski.
-\newblock Xcpu: a new, 9p-based, process management system for clusters and
-  grids.
-\newblock {\em Cluster Computing, 2006 IEEE International Conference on}, pages
-  1--10, 2006.
 
 \bibitem{olston2008pln}
 C.~Olston, B.~Reed, U.~Srivastava, R.~Kumar, and A.~Tomkins.
@@ -73,12 +34,6 @@ C.~Olston, B.~Reed, U.~Srivastava, R.~Kumar, and A.~Tomkins.
 R.~Pike.
 \newblock {Interpreting the data: Parallel analysis with Sawzall}.
 \newblock {\em Scientific Programming}, 13(4):277--298, 2005.
-
-\bibitem{evh2008mtags}
-E.~Van~Hensbergen and R.~Minnich.
-\newblock {System Support for Many Task Computing}.
-\newblock {\em Proc. of Workshop on Many-Task Computing on Grids and
-  Supercomputers}, 2008.
 
 \bibitem{yu2008dsg}
 Y.~Yu, M.~Isard, D.~Fetterly, M.~Budiu, U.~Erlingsson, P.K. Gunda, and

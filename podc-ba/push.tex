@@ -1,31 +1,55 @@
-\documentclass[11pt, letterpaper]{article}
-
-\title{PUSH: a DISC shell}
-\author{Noah Evans \\Nara Institute of Science and Technology \\noah-e@is.naist.jp  \and Eric Van Hensbergen \\IBM Research \\bergevan@us.ibm.com}
-
-\usepackage{fullpage}
-
-\usepackage{graphicx}
-
-\date{}
+\documentclass{sig-alt-release2}
 
 \begin{document}
+\conferenceinfo{PODC'09,} {August 10--12, 2009, Calgary, Alberta, Canada.} 
+\CopyrightYear{2009}
+\crdata{978-1-60558-396-9/09/08}
+\title{Brief Announcement: PUSH, a DISC shell}
+
+\numberofauthors{2}
+\author{
+\alignauthor Noah Evans \\
+\affaddr{Nara Institute of Science and Technology}\\
+\affaddr{Nara, Japan}\\
+\email{noah-e@is.naist.jp} 
+\alignauthor Eric Van Hensbergen \\
+\affaddr{IBM Research}\\
+\affaddr{Austin, TX}\\
+\email{bergevan@us.ibm.com}
+}
+\date{26 May 2009}
 
 \maketitle
+
+\begin{abstract}
+This paper explores the use of extended shell pipeline operators to
+establish distributed workflows and correlate results.
+\end{abstract}
+
+\vspace{1mm}
+\noindent
+{\bf Categories and Subject Descriptors:} C.2.4 {[Network Operating Systems]}: {Inferno}
+
+\vspace{1mm}
+\noindent
+{\bf General Terms:} Design, Management 
+
+\vspace{1mm}
+\noindent
+{\bf Keywords:} Supercomputing, Shell, Distributed Pipeline
 
 The deluge of huge data sets such those provided by sensor networks, 
 online transactions, and the web provide exciting opportunities for data
 analytics.  The scale of the data makes it impossible to deal with in a
-reasonable amount of time on isolated machines~\cite{barroso2003wsp}.
+reasonable amount of time on isolated machines.
 This has lead to Data Intensive Supercomputing~\cite{bryant2007dis} emerging
 as the standard tool for solving research problems using these vast datasets.
 In typical DISC systems, 
-runtimes ~\cite{dean2008msd}~\cite{bialecki:hfr}~\cite{isard2007ddd} define 
+runtimes~\cite{dean2008msd}~\cite{bialecki:hfr}~\cite{isard2007ddd} define 
 graphs of processes, the edges of the graphs representing 
 pipes and their vertices represent computation on a system.  
 Within these runtimes a new class of 
-languages~\cite{pike2005idp}~\cite{yu2008dsg}~\cite{olston2008pln} 
-can be used by researchers to solve "pleasantly parallel" 
+languages~\cite{pike2005idp}~\cite{yu2008dsg}~\cite{olston2008pln} can be used by researchers to solve "pleasantly parallel" 
 problems more quickly without worrying about explicit concurrency.
 
 These languages provide automated control flow(typically matched to the 
@@ -37,7 +61,7 @@ This creates difficulties for analytics researchers who wish to draw upon
 tools written in many different languages or runtimes which may be available
 on several different architectures or operating systems.
 
-We observe that UNIX pipes~\cite{mcilroy1964paf} were designed to get around 
+We observe that UNIX pipes were designed to get around 
 many of these incompatibilities, allowing developers to hook together tools 
 written in different languages and runtimes in ad-hoc fashions.  
 This allowed tool developers to focus on doing one thing well, and
@@ -64,7 +88,7 @@ easily distributed and coalesced.
 To address these issues we have implemented a prototype shell, 
 which we call PUSH, using DISC principles and incorporating extended 
 pipeline operators to establish distributed workflows and correlate results.
-Our implementation is based on extending an existing shell, MASH\cite{mashman}, 
+Our implementation is based on extending an existing shell, MASH, 
 from which we inherited a rich interpreted scripting language. 
 It treats variables as lists of strings and has no native handling for any 
 other data type. 
@@ -75,7 +99,7 @@ shell itself.
 
 \begin{figure}[htp]
 \centering
-\includegraphics[width=4.5in]{pipestruct.eps}
+\includegraphics[width=3in]{pipestruct.eps}
 \caption{The structure of the PUSH shell}
 \label{fig:pipestruct} 
 \end{figure}
@@ -96,7 +120,7 @@ nothing within our implementation which enforces it.
 Normal redirections as well as application specific sources and sinks 
 can provide alternate data paths.
 Remote thread distribution and interconnect are composed and managed
-using synthetic file systems in much the same manner as Xcpu~\cite{xcpu}, 
+using synthetic file systems in much the same manner as Xcpu, 
 pushing the distributed complexity into the middleware in an language and 
 runtime neutral fashion.
 
@@ -131,10 +155,13 @@ the distribution of Japanese words from a set of documents using chasen,
 a Japanese morphological analyzer, we take a set of files containing sentences 
 and then distribute them to a cluster of machines on our network. The command 
 is as follows:
+
 \begin{verbatim}
 push -c '{
   ORS=./blm.dis
-  du -an files |< xargs os chasen | awk '{print \$1}' | sort | uniq -c >| sort -rn
+  du -an files |< xargs os \\
+   chasen | awk '{print \$1}' | sort | uniq -c \\
+   >| sort -rn
 }'
 \end{verbatim}
 
@@ -158,8 +185,8 @@ sorts them.
 % status and future work
 We currently have a working prototype of the PUSH shell, which we can use
 to target local distributed clusters, dynamic clusters built using Amazon's
-EC2 cloud~\cite{amazon:aec}, and large scale clusters such as a Blue Gene 
-running the kittyhawk infrastructure~\cite{appavoo2008pkb}.  We are currently
+EC2 cloud, and large scale clusters such as a Blue Gene 
+running the kittyhawk infrastructure.  We are currently
 in the process of evaluating and optimizing performance for a variety of 
 application types.
 
@@ -167,7 +194,7 @@ Because PUSH distributes streaming data over potentially remote links push
 is prone to causing network congestion between nodes. 
 We are investigating multiple approaches to mitigating this overhead, both
 by using parallel distributed file systems and/or using distributed
-databases such as Google's Bigtable~\cite{chang2006bds}.
+databases such as Google's Bigtable.
 One research challenge is to find a way to integrate reference to these
 external data resources (or record sets within these resources) with the
 distributed pipelines in a natural fashion.
@@ -176,17 +203,15 @@ Another area of ongoing exploration is looking at adding fault tolerance as
 well as a more automated mechanism for determining how many resources to 
 allocate to a particular problem and automatically adapting that provisioning 
 based on monitoring the changing workload as it executes on the 
-cluster~\cite{evh2008mtags}.
+cluster.
 
 PUSH is under active development, but the current source code is open source 
-and available on Google Code (http://code.google.com/p/push).
+and available on Google Code.
 This work has been supported by the Department of Energy Of Office of Science Operating and Runtime Systems for Extreme Scale Scientific Computation project under contract \#DE-FG02-08ER25851. 
 
-\pagebreak
 
 \bibliographystyle{plain}
 \bibliography{thesis}
-
 \end{document}
 
 
