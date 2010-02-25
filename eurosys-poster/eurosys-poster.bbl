@@ -11,12 +11,25 @@ J.~Dean and S.~Ghemawat.
 \newblock {MapReduce: Simplified Data Processing on Large Clusters}.
 \newblock {\em Communications of the ACM}, 51(01):7, 2008.
 
+\bibitem{mashman}
+Bruce Ellis.
+\newblock {Mash Manual Page}.
+\newblock {\em Vita Nuova Ltd http://www .vitanuova .com/inferno/man/1/mash
+  .html}.
+
 \bibitem{isard2007ddd}
 M.~Isard, M.~Budiu, Y.~Yu, A.~Birrell, and D.~Fetterly.
 \newblock {Dryad: distributed data-parallel programs from sequential building
   blocks}.
 \newblock In {\em Proceedings of the 2007 conference on EuroSys}, pages 59--72.
   ACM Press New York, NY, USA, 2007.
+
+\bibitem{xcpu}
+Ron Minnich and Andrey Mirtchovski.
+\newblock Xcpu: a new, 9p-based, process management system for clusters and
+  grids.
+\newblock {\em Cluster Computing, 2006 IEEE International Conference on}, pages
+  1--10, 2006.
 
 \bibitem{olston2008pln}
 C.~Olston, B.~Reed, U.~Srivastava, R.~Kumar, and A.~Tomkins.

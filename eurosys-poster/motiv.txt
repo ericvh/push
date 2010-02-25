@@ -1,0 +1,70 @@
+So what is my story?
+
+interested in natural language processing.  the input is regular
+but unordered, you assume that one record doesn't affect the other,  and you have long pipelines, analyzer break text into sentences and words then
+parsers establish the relationships between the elements of sentences. Based on the results of these two steps various post processing.
+
+many of these statistics are derived at the sentence level. so the
+larger context is less important. at the same time you have to
+process potentially huge data sets.
+
+this sort of thing is something that people do that scales well to
+dataflow or map reduce style distributed systems. \cite{} talks
+about this. Many research groups have set up clusters to deal with
+these problems.
+
+This is very common to traditional unix ways of doing things. the
+quentessential example of the power of this approach is the | sort
+| uniq -c chain which takes an set of unordered line separated
+records, sorts and counts. <how does push address this in other
+ways>
+
+However, in the era of multicore and distributed/cloud systems,
+themselves scaling up to potentially up to 10s of thousands of
+processors the unix pipeline model doesn't work. linear pipelines
+don't work.
+
+However the pipeline model itself is extremely important. One primary
+way that people are taking advantage of these architectural changes
+is by using streaming systems. Depending on the system some streaming
+systems take advantage of streams on cores(streamit, streamline)
+and others take advantage of streams over distributed machines.
+
+Heavily
+ 
+
+the idea was to come up with something that could take advantage
+of a scalable solution using a bluegene. the goal is to take process
+instantiation and move it to a supercomputer environment, using a
+model called UEM.
+
+
+
+
+The role of a shell in a situation like that. 
+
+The traditional unix pipeline model does not work when you have a bunch of processes, potentially spread over a variety of machines. you want to be able to marshal and distribute data in more complicated graphs. 
+
+you have a working system 
+
+At the same time you don't have the same locality of computation. as a unix system. because you have many machines and many cores running many instances of the same process on many cores is a more efficient way of getting the job done quickly. 
+
+the problem is that things get stuck in library model. 
+
+using things is not feasible anymore. 
+
+potentially huge corpora 
+
+since natural language processing is something that requires compiling statistical data huge data sources like the web. 
+
+the tools that are used, morphological analyzers, dependency parsers, anaphora resolvers fit nicely to the pipeline model. The data sets, set of documents, which consist of sets of paragraphs which consist of sets of sentences which consist of sets of words model very nicely to records. however these changes are not necessarily what you want. you need to be able to produce sets of records. 
+
+
+The HARE project is something that works on being able to handle these sorts of problems. 
+
+The principle problem is that it is impossible to move back. 
+
+
+Challenges
+
+record separation, pipeline construction, program incorporation, portability across systems. 

@@ -2,47 +2,48 @@ This is BibTeX, Version 0.99c (Web2C 7.5.4)
 The top-level auxiliary file: eurosys-poster.aux
 The style file: plain.bst
 Database file #1: thesis.bib
-Warning--I didn't find a database entry for "colorad"
+Warning--I didn't find a database entry for "streamit"
 Warning--empty year in bialecki:hfr
-You've used 6 entries,
+Warning--empty year in mashman
+You've used 8 entries,
             2118 wiz_defined-function locations,
-            535 strings with 5247 characters,
-and the built_in function-call counts, 2541 in all, are:
-= -- 247
-> -- 137
-< -- 3
-+ -- 54
-- -- 48
-* -- 184
-:= -- 412
-add.period$ -- 20
-call.type$ -- 6
-change.case$ -- 42
+            545 strings with 5523 characters,
+and the built_in function-call counts, 3093 in all, are:
+= -- 301
+> -- 157
+< -- 4
++ -- 62
+- -- 54
+* -- 213
+:= -- 505
+add.period$ -- 26
+call.type$ -- 8
+change.case$ -- 51
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 97
-empty$ -- 184
-format.name$ -- 48
-if$ -- 538
+cite$ -- 10
+duplicate$ -- 123
+empty$ -- 228
+format.name$ -- 54
+if$ -- 657
 int.to.chr$ -- 0
-int.to.str$ -- 6
-missing$ -- 6
-newline$ -- 33
-num.names$ -- 12
-pop$ -- 49
+int.to.str$ -- 8
+missing$ -- 8
+newline$ -- 43
+num.names$ -- 16
+pop$ -- 60
 preamble$ -- 1
-purify$ -- 36
+purify$ -- 43
 quote$ -- 0
-skip$ -- 71
+skip$ -- 91
 stack$ -- 0
-substring$ -- 141
-swap$ -- 32
-text.length$ -- 3
+substring$ -- 166
+swap$ -- 39
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 24
-warning$ -- 1
-while$ -- 24
-width$ -- 7
-write$ -- 68
-(There were 2 warnings)
+type$ -- 32
+warning$ -- 2
+while$ -- 30
+width$ -- 9
+write$ -- 88
+(There were 3 warnings)
