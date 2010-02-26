@@ -23,17 +23,16 @@
 The deluge of huge data sets such as those provided by sensor
 networks, online transactions, and the web provide exciting
 opportunities for data analytics.  The scale of the data makes it
-impossible to deal with in a reasonable amount of time on isolated
-machines.  This has lead to data flow or streaming systems emerging
+impossible to process in a reasonable amount of time on isolated
+machines.  This has lead to data flow systems emerging
 as the standard tool for solving research problems using these vast
 datasets.  In typical dataflow systems,
 runtimes~\cite{dean2008msd}~\cite{bialecki:hfr}~\cite{isard2007ddd}
-~\cite{streamit} define graphs of processes, the edges of the graphs
-representing pipes and their vertices represent computation on a
+~\cite{streamit} and  define graphs of processes, the edges of the graphs
+representing pipes and their vertices representing computation on a
 system.  Within these runtimes a new class of
 languages~\cite{pike2005idp}~\cite{yu2008dsg}~\cite{olston2008pln} can
-be used by researchers to solve "pleasantly parallel" problems(i.e.
-problems where the individual elements of datasets are considered
+be used by researchers to solve "pleasantly parallel" problems(problems where the individual elements of datasets are considered
 to be independent of any other element) more quickly without worrying
 about explicit concurrency.
 
@@ -89,13 +88,13 @@ application types.
 
 
 We are also implementing a new version of Push, this one based on
-the RC shell\cite{} to easier integration into traditional unix
+the RC shell\cite{rcpaper} to easier integration into traditional unix
 systems like Linux. This version is simplified and closer to the
 bourne shell. The explicit goal of the new version of Push is
-integration with the Unified Execution Model(UEM)\cite{} which will
+integration with the Unified Execution Model(UEM)\cite{van-unified} which will
 allow the transparent distribution of processes and the connection
 of their communication channels between machines transparently.
-This work is taking place as part of the HARE project\cite{} 
+This work is taking place as part of the HARE project\cite{van2008holistic} 
 
 
 \begin{figure}[htp]
@@ -133,7 +132,7 @@ ORS and IRS, which point to record separator modules. These modules
 (called multiplexors in PUSH) split data on record boundaries, emitting 
 individual records that the system distributes and coalesces. 
 
-The choice of which multipipe to target is left as a decision to the module. 
+The choice of which \emph{multipipe}, an ordered set of pipes, to target is left as a decision to the module. 
 Different data formats may have different output requirements. 
 Demultiplexing from a multipipe is performed by creating a many to one 
 communications channel within the shell. The shell creates a reader processes 
@@ -171,7 +170,7 @@ used to ensure that the input and output to distributed pipes are correctly
 aligned to record boundaries. du -n gives a list of the files (note that our 
 du is a bit different from the canonical UNIX du, it replaces much of find's 
 functionality) which are then "fanned out"(\verb!|<!) using a combination 
-of a \emph{multipipe}, an ordered set of pipes, and a \emph{multiplexor} 
+of a multipipes, and a \emph{multiplexor} 
 which determines which pipes are the targets of each unit of output.  
 This fanned out data goes to xargs on other machines which 
 then uses the filenames(sent from the instantiating machine) as arguments to 

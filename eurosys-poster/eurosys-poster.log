@@ -1,4 +1,4 @@
-This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2010.2.24)  25 FEB 2010 16:22
+This is pdfeTeX, Version 3.141592-1.21a-2.2 (Web2C 7.5.4) (format=latex 2010.2.24)  26 FEB 2010 14:39
 entering extended mode
 **eurosys-poster.tex
 (./eurosys-poster.tex
@@ -215,9 +215,21 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 LaTeX Warning: Citation `streamit' on page \thepage  undefined on input line 31
 .
 
+
+LaTeX Warning: Citation `rcpaper' on page \thepage  undefined on input line 91.
+
+
+
+LaTeX Warning: Citation `van-unified' on page \thepage  undefined on input line
+ 94.
+
+
+LaTeX Warning: Citation `van2008holistic' on page \thepage  undefined on input 
+line 97.
+
 File: pipestruct.eps Graphic file (type eps)
 <pipestruct.eps>
-LaTeX Font Info:    Try loading font information for T1+aett on input line 109.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 108.
 
  (/opt/local/share/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
@@ -227,12 +239,12 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ]
 (./eurosys-poster.bbl) [2] (./eurosys-poster.aux) ) 
 Here is how much of TeX's memory you used:
- 1836 strings out of 94501
- 20498 string characters out of 1155436
+ 1839 strings out of 94501
+ 20537 string characters out of 1155436
  74868 words of memory out of 1000000
- 4991 multiletter control sequences out of 10000+50000
+ 4994 multiletter control sequences out of 10000+50000
  40145 words of font info for 52 fonts, out of 500000 for 2000
  580 hyphenation exceptions out of 1000
  39i,10n,26p,232b,254s stack positions out of 1500i,500n,5000p,200000b,5000s
 
-Output written on eurosys-poster.dvi (2 pages, 16136 bytes).
+Output written on eurosys-poster.dvi (2 pages, 16144 bytes).

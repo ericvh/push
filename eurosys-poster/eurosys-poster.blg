@@ -3,11 +3,14 @@ The top-level auxiliary file: eurosys-poster.aux
 The style file: plain.bst
 Database file #1: thesis.bib
 Warning--I didn't find a database entry for "streamit"
+Warning--I didn't find a database entry for "rcpaper"
+Warning--I didn't find a database entry for "van-unified"
+Warning--I didn't find a database entry for "van2008holistic"
 Warning--empty year in bialecki:hfr
 Warning--empty year in mashman
 You've used 8 entries,
             2118 wiz_defined-function locations,
-            545 strings with 5523 characters,
+            548 strings with 5556 characters,
 and the built_in function-call counts, 3093 in all, are:
 = -- 301
 > -- 157
@@ -46,4 +49,4 @@ warning$ -- 2
 while$ -- 30
 width$ -- 9
 write$ -- 88
-(There were 3 warnings)
+(There were 6 warnings)
