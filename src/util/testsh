@@ -1,0 +1,1 @@
+{ORS=/n/go/usr/npe/push/util/blf.dis; cat /tmp/testfile |< cat >| cat}

@@ -1,0 +1,93 @@
+
+TARG=	push.dis\
+	pushlib.dis\
+	pushparse.dis\
+	builtins.dis\
+	history.dis\
+	make.dis\
+	eyacc.dis\
+	pushflt/blf.dis\
+	pushflt/blm.dis\
+
+INS=	/dis/push.dis\
+	/dis/lib/pushlib.dis\
+	/dis/lib/pushparse.dis\
+	/dis/lib/push/builtins.dis\
+	/dis/lib/push/history.dis\
+	/dis/lib/push/make.dis\
+	/dis/pushflt/blf.dis\
+	/dis/pushflt/blm.dis\
+
+MODULES=\
+	push.m\
+	pushparse.m\
+
+SYSMODULES=\
+	bufio.m\
+	draw.m\
+	filepat.m\
+	hash.m\
+	regex.m\
+	sh.m\
+	string.m\
+	sys.m\
+
+LIBSRC=\
+	depends.b\
+	dump.b\
+	exec.b\
+	expr.b\
+	lex.b\
+	misc.b\
+	serve.b\
+	symb.b\
+	xeq.b\
+
+all:V:		$TARG
+
+install:V:	$INS
+
+nuke:V: clean
+	rm -f $INS
+
+clean:V:
+	rm -f *.dis *.sbl
+
+uninstall:V:
+	rm -f $INS
+
+MODDIR=/module
+SYS_MODULE=${SYSMODULES:%=$MODDIR/%}
+LIMBOFLAGS=-I$MODDIR
+
+/dis/push.dis:	push.dis
+	rm -f /dis/push.dis && cp push.dis /dis/push.dis
+
+/dis/lib/pushlib.dis:	pushlib.dis
+	rm -f /dis/lib/pushlib.dis && cp pushlib.dis /dis/lib/pushlib.dis
+
+/dis/lib/pushparse.dis:	pushparse.dis
+	rm -f /dis/lib/pushparse.dis && cp pushparse.dis /dis/lib/pushparse.dis
+
+/dis/lib/push/%.dis:	%.dis
+	rm -f /dis/lib/$stem.dis && cp $stem.dis /dis/lib/push/$stem.dis
+	
+/dis/pushflt/blf.dis: pushflt/blf.dis
+	rm -f /dis/pushflt/blf.dis && cp blf.dis /dis/pushflt/blf.dis
+	
+/dis/pushflt/blm.dis: pushflt/blm.dis
+	rm -f /dis/pushflt/blm.dis && cp blm.dis /dis/pushflt/blm.dis
+	
+%.dis:		$MODULES $SYS_MODULE
+pushlib.dis:	$LIBSRC
+
+%.dis:		%.b
+	limbo $LIMBOFLAGS -gw $stem.b
+
+%.s:		%.b
+	limbo $LIMBOFLAGS -w -G -S $stem.b
+	
+%parse.b:		%.y
+	eyacc -vd $stem.y;
+	mv y.tab.m $stem^parse.m;
+	mv y.tab.b $stem^parse.b;

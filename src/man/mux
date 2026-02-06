@@ -1,0 +1,19 @@
+Mux is a way of filtering multiple inputs into a system. 
+you initiatly. 
+
+you give it a number of inputs and outputs and it multiplexes between them. 
+it tells you which of those to do. 
+
+to create a multiplexer you give it multiple inputs. To create a demultiplexer you give it multiple outputs. 
+
+You dictate how many inputs and outputs in the start function. 
+
+BUGS
+
+how does the system handle it when you have a bunch of different values. 
+
+okay. so you are going to make a bunch of 
+
+you also define the multiplexer so it can do what you want in terms of the fan out procedure. 
+
+It doesn't dictate how you deal with file descriptors. 

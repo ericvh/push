@@ -1,0 +1,36 @@
+make -clear;
+lflags = -wg;
+
+fn lc {
+	limbo $lflags $args;
+};
+
+libsrc = depends.b dump.b exec.b expr.b lex.b misc.b serve.b symb.b xeq.b;
+bus = builtins.dis tk.dis make.dis history.dis;
+core = push.dis pushlib.dis pushparse.dis;
+
+bulib = /dis/lib/push;
+bulibs = $bulib/$bus;
+
+pushparse.b pushparse.m : push.y
+{
+	eyacc -vd push.y;
+	mv y.tab.m pushparse.m;
+	mv y.tab.b pushparse.b;
+};
+
+*.dis			:~ $1.b { lc $1.b };
+$bulib/*.dis	:~ $1.dis { cp $1.dis $bulib };
+/dis/*.dis		:~ $1.dis { cp $1.dis /dis };
+/dis/lib/*.dis	:~ $1.dis { cp $1.dis /dis/lib };
+
+$core $bus : push.m pushparse.m;
+pushlib.dis :  $libsrc;
+
+insbu : $bulibs {};
+insdis : /dis/push.dis /dis/lib/pushlib.dis /dis/lib/pushparse.dis {};
+
+all : eyacc.dis push.dis pushlib.dis pushparse.dis $bus {};
+install : insbu insdis {};
+
+clean : { rm pushparse.b pushparse.m *.dis };

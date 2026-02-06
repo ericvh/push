@@ -1,0 +1,28 @@
+./testrec.dis  | os sed `{fc 128 1024 x 25 / .88 - 16 x}^q | os sort | os uniq -c | os sort -rn | os vis
+ grep -n 'writer 0 01$'
+./
+./testrec.dis | seq 10q
+sh pushinit
+mkb -m Textmux testmux.b
+echo 'this
+is 
+a 
+sentence' | ./testmux &
+stack $apid
+
+likes archictecture, especially pattern languages and "organic cities"
+hates pattern languages in software
+loves Nara Japan, wants to be one of the drunk old farts wandering downtown.
+if I could automate my life I would. 
+used to like blue as a child but now my favorite color is green. 
+both of his names are biblical(old and new testament)
+has become horribly boring in the past few years
+likes fishing, I used to fish every weekend until I went to highschool. 
+Got his super nintendo taken away by his house parents his freshman year of highschool, his GPA plummeted as a result.
+was addicted to street fighter II for two years 1992-1993
+is 25 percentile in sequential memory. 
+hated 80s music in the 80s, now loves it. 
+inherited Jero's() room after he left Nova. 
+taught English at Nova and has a ton of funny stories about the people who studied there
+
+

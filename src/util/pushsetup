@@ -1,0 +1,3 @@
+
+bind '#|' /n/push
+listen 'net!*!7874' {export /n/push&}

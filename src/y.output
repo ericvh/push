@@ -1,0 +1,1670 @@
+
+state 0
+	$accept: .script $end 
+	tcmds: .    (2)
+
+	.  reduce 2 (src line 58)
+
+	script  goto 1
+	tcmds  goto 2
+
+state 1
+	$accept:  script.$end 
+
+	$end  accept
+	.  error
+
+
+state 2
+	script:  tcmds.    (1)
+	tcmds:  tcmds.xeq 
+
+	$end  reduce 1 (src line 55)
+	error  shift 6
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	Leof  shift 5
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 7
+	cmda  goto 4
+	complex  goto 9
+	simple  goto 8
+	xeq  goto 3
+
+state 3
+	tcmds:  tcmds xeq.    (3)
+
+	.  reduce 3 (src line 59)
+
+
+state 4
+	xeq:  cmda.    (4)
+
+	.  reduce 4 (src line 62)
+
+
+state 5
+	xeq:  Leof.    (5)
+
+	.  reduce 5 (src line 64)
+
+
+state 6
+	xeq:  error.    (6)
+
+	.  reduce 6 (src line 65)
+
+
+state 7
+	cmda:  cmd.term 
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd.Lpipe cmd 
+
+	Lpipe  shift 26
+	Lfanin  shift 24
+	Lfanout  shift 25
+	Land  shift 29
+	Leof  shift 28
+	Lsemi  shift 27
+	.  error
+
+	term  goto 23
+
+state 8
+	cmd:  simple.    (12)
+
+	.  reduce 12 (src line 83)
+
+
+state 9
+	cmd:  complex.    (13)
+
+	.  reduce 13 (src line 84)
+
+
+state 10
+	simple:  asimple.    (17)
+	simple:  asimple.Lcolon list cobrace 
+	asimple:  asimple.item 
+
+	Lword  shift 40
+	Lbackq  shift 41
+	Lcolon  shift 30
+	Lquote  shift 42
+	Lonparen  shift 22
+	Lgreat  shift 37
+	Lgreatgreat  shift 38
+	Lless  shift 36
+	Llessgreat  shift 39
+	.  reduce 17 (src line 93)
+
+	item  goto 31
+	wgen  goto 35
+	witem  goto 32
+	word  goto 34
+	redir  goto 33
+
+state 11
+	complex:  Loncurly.cmds Loffcurly epilog 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 43
+	cmdt  goto 44
+
+state 12
+	complex:  Lat.Loncurly cmds Loffcurly epilog 
+
+	Loncurly  shift 45
+	.  error
+
+
+state 13
+	complex:  Lfor.Lonparen sword Lin list Loffparen cmd 
+
+	Lonparen  shift 46
+	.  error
+
+
+state 14
+	complex:  Lif.Lonparen expr Loffparen cmd 
+	complex:  Lif.Lonparen expr Loffparen cmd Lelse cmd 
+
+	Lonparen  shift 47
+	.  error
+
+
+state 15
+	complex:  Lwhile.Lonparen expr Loffparen cmd 
+
+	Lonparen  shift 48
+	.  error
+
+
+state 16
+	complex:  Lcase.expr Loncurly cases Loffcurly 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 49
+
+state 17
+	complex:  sword.Leq list 
+	complex:  sword.Ldefeq list 
+
+	Ldefeq  shift 60
+	Leq  shift 59
+	.  error
+
+
+state 18
+	complex:  Lfn.word obrace 
+
+	Lword  shift 40
+	Lonparen  shift 22
+	.  error
+
+	word  goto 61
+
+state 19
+	complex:  Lrescue.word obrace 
+
+	Lword  shift 40
+	Lonparen  shift 22
+	.  error
+
+	word  goto 62
+
+state 20
+	complex:  word.Lcolonmatch word cbrace 
+	asimple:  word.    (40)
+	word:  word.Lcaret word 
+
+	Lcaret  shift 64
+	Lcolonmatch  shift 63
+	.  reduce 40 (src line 158)
+
+
+state 21
+	word:  Lword.    (50)
+	sword:  Lword.    (53)
+
+	Ldefeq  reduce 53 (src line 189)
+	Leq  reduce 53 (src line 189)
+	.  reduce 50 (src line 182)
+
+
+state 22
+	word:  Lonparen.expr Loffparen 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 65
+
+state 23
+	cmda:  cmd term.    (9)
+
+	.  reduce 9 (src line 74)
+
+
+state 24
+	cmd:  cmd Lfanin.cmd 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 66
+	complex  goto 9
+	simple  goto 8
+
+state 25
+	cmd:  cmd Lfanout.cmd 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 67
+	complex  goto 9
+	simple  goto 8
+
+state 26
+	cmd:  cmd Lpipe.cmd 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 68
+	complex  goto 9
+	simple  goto 8
+
+state 27
+	term:  Lsemi.    (62)
+
+	.  reduce 62 (src line 215)
+
+
+state 28
+	term:  Leof.    (63)
+
+	.  reduce 63 (src line 217)
+
+
+state 29
+	term:  Land.    (64)
+
+	.  reduce 64 (src line 219)
+
+
+state 30
+	simple:  asimple Lcolon.list cobrace 
+	list: .    (54)
+
+	.  reduce 54 (src line 193)
+
+	list  goto 69
+
+state 31
+	asimple:  asimple item.    (41)
+
+	.  reduce 41 (src line 160)
+
+
+state 32
+	item:  witem.    (42)
+
+	.  reduce 42 (src line 164)
+
+
+state 33
+	item:  redir.    (43)
+
+	.  reduce 43 (src line 165)
+
+
+state 34
+	witem:  word.    (44)
+	word:  word.Lcaret word 
+
+	Lcaret  shift 64
+	.  reduce 44 (src line 168)
+
+
+state 35
+	witem:  wgen.    (45)
+
+	.  reduce 45 (src line 169)
+
+
+state 36
+	wgen:  Lless.Loncurly cmds Loffcurly 
+	redir:  Lless.word 
+
+	Lword  shift 40
+	Loncurly  shift 70
+	Lonparen  shift 22
+	.  error
+
+	word  goto 71
+
+state 37
+	wgen:  Lgreat.Loncurly cmds Loffcurly 
+	redir:  Lgreat.word 
+
+	Lword  shift 40
+	Loncurly  shift 72
+	Lonparen  shift 22
+	.  error
+
+	word  goto 73
+
+state 38
+	redir:  Lgreatgreat.word 
+
+	Lword  shift 40
+	Lonparen  shift 22
+	.  error
+
+	word  goto 74
+
+state 39
+	redir:  Llessgreat.word 
+
+	Lword  shift 40
+	Lonparen  shift 22
+	.  error
+
+	word  goto 75
+
+state 40
+	word:  Lword.    (50)
+
+	.  reduce 50 (src line 182)
+
+
+state 41
+	wgen:  Lbackq.Loncurly cmds Loffcurly 
+
+	Loncurly  shift 76
+	.  error
+
+
+state 42
+	wgen:  Lquote.Loncurly cmds Loffcurly 
+
+	Loncurly  shift 77
+	.  error
+
+
+state 43
+	complex:  Loncurly cmds.Loffcurly epilog 
+
+	Loffcurly  shift 78
+	.  error
+
+
+state 44
+	cmdt:  cmdt.cmda 
+	cmds:  cmdt.    (10)
+	cmds:  cmdt.cmd 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  reduce 10 (src line 78)
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 80
+	cmda  goto 79
+	complex  goto 9
+	simple  goto 8
+
+state 45
+	complex:  Lat Loncurly.cmds Loffcurly epilog 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 81
+	cmdt  goto 44
+
+state 46
+	complex:  Lfor Lonparen.sword Lin list Loffparen cmd 
+
+	Lword  shift 83
+	.  error
+
+	sword  goto 82
+
+state 47
+	complex:  Lif Lonparen.expr Loffparen cmd 
+	complex:  Lif Lonparen.expr Loffparen cmd Lelse cmd 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 84
+
+state 48
+	complex:  Lwhile Lonparen.expr Loffparen cmd 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 85
+
+state 49
+	complex:  Lcase expr.Loncurly cases Loffcurly 
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	Leqeq  shift 89
+	Lmatch  shift 91
+	Lnoteq  shift 90
+	Lcons  shift 88
+	Lcaret  shift 87
+	Loncurly  shift 86
+	.  error
+
+
+state 50
+	expr:  Lword.    (65)
+
+	.  reduce 65 (src line 223)
+
+
+state 51
+	expr:  wgen.    (66)
+
+	.  reduce 66 (src line 225)
+
+
+state 52
+	expr:  Lonparen.expr Loffparen 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 92
+
+state 53
+	expr:  Lhd.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 93
+
+state 54
+	expr:  Ltl.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 94
+
+state 55
+	expr:  Llen.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 95
+
+state 56
+	expr:  Lnot.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 96
+
+state 57
+	wgen:  Lless.Loncurly cmds Loffcurly 
+
+	Loncurly  shift 70
+	.  error
+
+
+state 58
+	wgen:  Lgreat.Loncurly cmds Loffcurly 
+
+	Loncurly  shift 72
+	.  error
+
+
+state 59
+	complex:  sword Leq.list 
+	list: .    (54)
+
+	.  reduce 54 (src line 193)
+
+	list  goto 97
+
+state 60
+	complex:  sword Ldefeq.list 
+	list: .    (54)
+
+	.  reduce 54 (src line 193)
+
+	list  goto 98
+
+state 61
+	complex:  Lfn word.obrace 
+	word:  word.Lcaret word 
+	obrace: .    (35)
+
+	Lcaret  shift 64
+	Loncurly  shift 100
+	.  reduce 35 (src line 142)
+
+	obrace  goto 99
+
+state 62
+	complex:  Lrescue word.obrace 
+	word:  word.Lcaret word 
+	obrace: .    (35)
+
+	Lcaret  shift 64
+	Loncurly  shift 100
+	.  reduce 35 (src line 142)
+
+	obrace  goto 101
+
+state 63
+	complex:  word Lcolonmatch.word cbrace 
+
+	Lword  shift 40
+	Lonparen  shift 22
+	.  error
+
+	word  goto 102
+
+state 64
+	word:  word Lcaret.word 
+
+	Lword  shift 40
+	Lonparen  shift 22
+	.  error
+
+	word  goto 103
+
+state 65
+	word:  Lonparen expr.Loffparen 
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	Loffparen  shift 104
+	Leqeq  shift 89
+	Lmatch  shift 91
+	Lnoteq  shift 90
+	Lcons  shift 88
+	Lcaret  shift 87
+	.  error
+
+
+state 66
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd Lfanin cmd.    (14)
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd.Lpipe cmd 
+
+	.  reduce 14 (src line 85)
+
+
+state 67
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd Lfanout cmd.    (15)
+	cmd:  cmd.Lpipe cmd 
+
+	.  reduce 15 (src line 87)
+
+
+state 68
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd.Lpipe cmd 
+	cmd:  cmd Lpipe cmd.    (16)
+
+	.  reduce 16 (src line 89)
+
+
+state 69
+	simple:  asimple Lcolon list.cobrace 
+	list:  list.witem 
+	cobrace: .    (33)
+
+	Lword  shift 40
+	Lbackq  shift 41
+	Lcolon  shift 108
+	Lquote  shift 42
+	Loncurly  shift 109
+	Lonparen  shift 22
+	Lgreat  shift 58
+	Lless  shift 57
+	.  reduce 33 (src line 137)
+
+	wgen  goto 35
+	witem  goto 106
+	word  goto 34
+	cbrace  goto 107
+	cobrace  goto 105
+
+state 70
+	wgen:  Lless Loncurly.cmds Loffcurly 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 110
+	cmdt  goto 44
+
+state 71
+	word:  word.Lcaret word 
+	redir:  Lless word.    (58)
+
+	Lcaret  shift 64
+	.  reduce 58 (src line 205)
+
+
+state 72
+	wgen:  Lgreat Loncurly.cmds Loffcurly 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 111
+	cmdt  goto 44
+
+state 73
+	word:  word.Lcaret word 
+	redir:  Lgreat word.    (59)
+
+	Lcaret  shift 64
+	.  reduce 59 (src line 207)
+
+
+state 74
+	word:  word.Lcaret word 
+	redir:  Lgreatgreat word.    (60)
+
+	Lcaret  shift 64
+	.  reduce 60 (src line 209)
+
+
+state 75
+	word:  word.Lcaret word 
+	redir:  Llessgreat word.    (61)
+
+	Lcaret  shift 64
+	.  reduce 61 (src line 211)
+
+
+state 76
+	wgen:  Lbackq Loncurly.cmds Loffcurly 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 112
+	cmdt  goto 44
+
+state 77
+	wgen:  Lquote Loncurly.cmds Loffcurly 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 113
+	cmdt  goto 44
+
+state 78
+	complex:  Loncurly cmds Loffcurly.epilog 
+	epilog: .    (56)
+
+	.  reduce 56 (src line 199)
+
+	epilog  goto 114
+
+state 79
+	cmdt:  cmdt cmda.    (8)
+
+	.  reduce 8 (src line 70)
+
+
+state 80
+	cmda:  cmd.term 
+	cmds:  cmdt cmd.    (11)
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd.Lpipe cmd 
+
+	Lpipe  shift 26
+	Lfanin  shift 24
+	Lfanout  shift 25
+	Land  shift 29
+	Leof  shift 28
+	Lsemi  shift 27
+	.  reduce 11 (src line 79)
+
+	term  goto 23
+
+state 81
+	complex:  Lat Loncurly cmds.Loffcurly epilog 
+
+	Loffcurly  shift 115
+	.  error
+
+
+state 82
+	complex:  Lfor Lonparen sword.Lin list Loffparen cmd 
+
+	Lin  shift 116
+	.  error
+
+
+state 83
+	sword:  Lword.    (53)
+
+	.  reduce 53 (src line 189)
+
+
+state 84
+	complex:  Lif Lonparen expr.Loffparen cmd 
+	complex:  Lif Lonparen expr.Loffparen cmd Lelse cmd 
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	Loffparen  shift 117
+	Leqeq  shift 89
+	Lmatch  shift 91
+	Lnoteq  shift 90
+	Lcons  shift 88
+	Lcaret  shift 87
+	.  error
+
+
+state 85
+	complex:  Lwhile Lonparen expr.Loffparen cmd 
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	Loffparen  shift 118
+	Leqeq  shift 89
+	Lmatch  shift 91
+	Lnoteq  shift 90
+	Lcons  shift 88
+	Lcaret  shift 87
+	.  error
+
+
+state 86
+	complex:  Lcase expr Loncurly.cases Loffcurly 
+	cases: .    (37)
+
+	.  reduce 37 (src line 148)
+
+	cases  goto 119
+
+state 87
+	expr:  expr Lcaret.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 120
+
+state 88
+	expr:  expr Lcons.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 121
+
+state 89
+	expr:  expr Leqeq.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 122
+
+state 90
+	expr:  expr Lnoteq.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 123
+
+state 91
+	expr:  expr Lmatch.expr 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	expr  goto 124
+
+state 92
+	expr:  Lonparen expr.Loffparen 
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	Loffparen  shift 125
+	Leqeq  shift 89
+	Lmatch  shift 91
+	Lnoteq  shift 90
+	Lcons  shift 88
+	Lcaret  shift 87
+	.  error
+
+
+state 93
+	expr:  expr.Lcaret expr 
+	expr:  Lhd expr.    (69)
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	.  reduce 69 (src line 231)
+
+
+state 94
+	expr:  expr.Lcaret expr 
+	expr:  Ltl expr.    (70)
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	.  reduce 70 (src line 233)
+
+
+state 95
+	expr:  expr.Lcaret expr 
+	expr:  Llen expr.    (71)
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	.  reduce 71 (src line 235)
+
+
+state 96
+	expr:  expr.Lcaret expr 
+	expr:  Lnot expr.    (72)
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	.  reduce 72 (src line 237)
+
+
+state 97
+	complex:  sword Leq list.    (26)
+	list:  list.witem 
+
+	Lword  shift 40
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 22
+	Lgreat  shift 58
+	Lless  shift 57
+	.  reduce 26 (src line 116)
+
+	wgen  goto 35
+	witem  goto 106
+	word  goto 34
+
+state 98
+	complex:  sword Ldefeq list.    (27)
+	list:  list.witem 
+
+	Lword  shift 40
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 22
+	Lgreat  shift 58
+	Lless  shift 57
+	.  reduce 27 (src line 118)
+
+	wgen  goto 35
+	witem  goto 106
+	word  goto 34
+
+state 99
+	complex:  Lfn word obrace.    (28)
+
+	.  reduce 28 (src line 120)
+
+
+state 100
+	obrace:  Loncurly.cmds Loffcurly 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 126
+	cmdt  goto 44
+
+state 101
+	complex:  Lrescue word obrace.    (29)
+
+	.  reduce 29 (src line 122)
+
+
+state 102
+	complex:  word Lcolonmatch word.cbrace 
+	word:  word.Lcaret word 
+
+	Lcaret  shift 64
+	Lcolon  shift 108
+	Loncurly  shift 109
+	.  error
+
+	cbrace  goto 127
+
+state 103
+	word:  word.Lcaret word 
+	word:  word Lcaret word.    (51)
+
+	.  reduce 51 (src line 183)
+
+
+state 104
+	word:  Lonparen expr Loffparen.    (52)
+
+	.  reduce 52 (src line 185)
+
+
+state 105
+	simple:  asimple Lcolon list cobrace.    (18)
+
+	.  reduce 18 (src line 95)
+
+
+state 106
+	list:  list witem.    (55)
+
+	.  reduce 55 (src line 195)
+
+
+state 107
+	cobrace:  cbrace.    (34)
+
+	.  reduce 34 (src line 139)
+
+
+state 108
+	cbrace:  Lcolon.Loncurly cmds Loffcurly 
+
+	Loncurly  shift 128
+	.  error
+
+
+state 109
+	cbrace:  Loncurly.cmds Loffcurly 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 129
+	cmdt  goto 44
+
+state 110
+	wgen:  Lless Loncurly cmds.Loffcurly 
+
+	Loffcurly  shift 130
+	.  error
+
+
+state 111
+	wgen:  Lgreat Loncurly cmds.Loffcurly 
+
+	Loffcurly  shift 131
+	.  error
+
+
+state 112
+	wgen:  Lbackq Loncurly cmds.Loffcurly 
+
+	Loffcurly  shift 132
+	.  error
+
+
+state 113
+	wgen:  Lquote Loncurly cmds.Loffcurly 
+
+	Loffcurly  shift 133
+	.  error
+
+
+state 114
+	complex:  Loncurly cmds Loffcurly epilog.    (19)
+	epilog:  epilog.redir 
+
+	Lgreat  shift 136
+	Lgreatgreat  shift 38
+	Lless  shift 135
+	Llessgreat  shift 39
+	.  reduce 19 (src line 102)
+
+	redir  goto 134
+
+state 115
+	complex:  Lat Loncurly cmds Loffcurly.epilog 
+	epilog: .    (56)
+
+	.  reduce 56 (src line 199)
+
+	epilog  goto 137
+
+state 116
+	complex:  Lfor Lonparen sword Lin.list Loffparen cmd 
+	list: .    (54)
+
+	.  reduce 54 (src line 193)
+
+	list  goto 138
+
+state 117
+	complex:  Lif Lonparen expr Loffparen.cmd 
+	complex:  Lif Lonparen expr Loffparen.cmd Lelse cmd 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 139
+	complex  goto 9
+	simple  goto 8
+
+state 118
+	complex:  Lwhile Lonparen expr Loffparen.cmd 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 140
+	complex  goto 9
+	simple  goto 8
+
+state 119
+	complex:  Lcase expr Loncurly cases.Loffcurly 
+	cases:  cases.case 
+
+	Lnot  shift 56
+	Lhd  shift 53
+	Ltl  shift 54
+	Llen  shift 55
+	Lword  shift 50
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 52
+	Loffcurly  shift 141
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 51
+	case  goto 142
+	expr  goto 143
+
+state 120
+	expr:  expr.Lcaret expr 
+	expr:  expr Lcaret expr.    (68)
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	.  reduce 68 (src line 229)
+
+
+state 121
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr Lcons expr.    (73)
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	Lcons  shift 88
+	Lcaret  shift 87
+	.  reduce 73 (src line 239)
+
+
+state 122
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr Leqeq expr.    (74)
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	Lcons  shift 88
+	Lcaret  shift 87
+	.  reduce 74 (src line 241)
+
+
+state 123
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr Lnoteq expr.    (75)
+	expr:  expr.Lmatch expr 
+
+	Lcons  shift 88
+	Lcaret  shift 87
+	.  reduce 75 (src line 243)
+
+
+state 124
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+	expr:  expr Lmatch expr.    (76)
+
+	Lcons  shift 88
+	Lcaret  shift 87
+	.  reduce 76 (src line 245)
+
+
+state 125
+	expr:  Lonparen expr Loffparen.    (67)
+
+	.  reduce 67 (src line 227)
+
+
+state 126
+	obrace:  Loncurly cmds.Loffcurly 
+
+	Loffcurly  shift 144
+	.  error
+
+
+state 127
+	complex:  word Lcolonmatch word cbrace.    (30)
+
+	.  reduce 30 (src line 124)
+
+
+state 128
+	cbrace:  Lcolon Loncurly.cmds Loffcurly 
+	cmdt: .    (7)
+
+	.  reduce 7 (src line 68)
+
+	cmds  goto 145
+	cmdt  goto 44
+
+state 129
+	cbrace:  Loncurly cmds.Loffcurly 
+
+	Loffcurly  shift 146
+	.  error
+
+
+state 130
+	wgen:  Lless Loncurly cmds Loffcurly.    (48)
+
+	.  reduce 48 (src line 176)
+
+
+state 131
+	wgen:  Lgreat Loncurly cmds Loffcurly.    (49)
+
+	.  reduce 49 (src line 178)
+
+
+state 132
+	wgen:  Lbackq Loncurly cmds Loffcurly.    (46)
+
+	.  reduce 46 (src line 172)
+
+
+state 133
+	wgen:  Lquote Loncurly cmds Loffcurly.    (47)
+
+	.  reduce 47 (src line 174)
+
+
+state 134
+	epilog:  epilog redir.    (57)
+
+	.  reduce 57 (src line 201)
+
+
+state 135
+	redir:  Lless.word 
+
+	Lword  shift 40
+	Lonparen  shift 22
+	.  error
+
+	word  goto 71
+
+state 136
+	redir:  Lgreat.word 
+
+	Lword  shift 40
+	Lonparen  shift 22
+	.  error
+
+	word  goto 73
+
+state 137
+	complex:  Lat Loncurly cmds Loffcurly epilog.    (20)
+	epilog:  epilog.redir 
+
+	Lgreat  shift 136
+	Lgreatgreat  shift 38
+	Lless  shift 135
+	Llessgreat  shift 39
+	.  reduce 20 (src line 104)
+
+	redir  goto 134
+
+state 138
+	complex:  Lfor Lonparen sword Lin list.Loffparen cmd 
+	list:  list.witem 
+
+	Loffparen  shift 147
+	Lword  shift 40
+	Lbackq  shift 41
+	Lquote  shift 42
+	Lonparen  shift 22
+	Lgreat  shift 58
+	Lless  shift 57
+	.  error
+
+	wgen  goto 35
+	witem  goto 106
+	word  goto 34
+
+state 139
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd.Lpipe cmd 
+	complex:  Lif Lonparen expr Loffparen cmd.    (22)
+	complex:  Lif Lonparen expr Loffparen cmd.Lelse cmd 
+
+	Lelse  shift 148
+	Lpipe  shift 26
+	Lfanin  shift 24
+	Lfanout  shift 25
+	.  reduce 22 (src line 108)
+
+
+state 140
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd.Lpipe cmd 
+	complex:  Lwhile Lonparen expr Loffparen cmd.    (24)
+
+	Lpipe  shift 26
+	Lfanin  shift 24
+	Lfanout  shift 25
+	.  reduce 24 (src line 112)
+
+
+state 141
+	complex:  Lcase expr Loncurly cases Loffcurly.    (25)
+
+	.  reduce 25 (src line 114)
+
+
+state 142
+	cases:  cases case.    (38)
+
+	.  reduce 38 (src line 150)
+
+
+state 143
+	case:  expr.Lmatched cmda 
+	expr:  expr.Lcaret expr 
+	expr:  expr.Lcons expr 
+	expr:  expr.Leqeq expr 
+	expr:  expr.Lnoteq expr 
+	expr:  expr.Lmatch expr 
+
+	Leqeq  shift 89
+	Lmatch  shift 91
+	Lnoteq  shift 90
+	Lcons  shift 88
+	Lcaret  shift 87
+	Lmatched  shift 149
+	.  error
+
+
+state 144
+	obrace:  Loncurly cmds Loffcurly.    (36)
+
+	.  reduce 36 (src line 144)
+
+
+state 145
+	cbrace:  Lcolon Loncurly cmds.Loffcurly 
+
+	Loffcurly  shift 150
+	.  error
+
+
+state 146
+	cbrace:  Loncurly cmds Loffcurly.    (32)
+
+	.  reduce 32 (src line 133)
+
+
+state 147
+	complex:  Lfor Lonparen sword Lin list Loffparen.cmd 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 151
+	complex  goto 9
+	simple  goto 8
+
+state 148
+	complex:  Lif Lonparen expr Loffparen cmd Lelse.cmd 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 152
+	complex  goto 9
+	simple  goto 8
+
+state 149
+	case:  expr Lmatched.cmda 
+
+	Lcase  shift 16
+	Lfor  shift 13
+	Lif  shift 14
+	Lwhile  shift 15
+	Lword  shift 21
+	Loncurly  shift 11
+	Lonparen  shift 22
+	Lat  shift 12
+	Lfn  shift 18
+	Lrescue  shift 19
+	.  error
+
+	word  goto 20
+	sword  goto 17
+	asimple  goto 10
+	cmd  goto 7
+	cmda  goto 153
+	complex  goto 9
+	simple  goto 8
+
+state 150
+	cbrace:  Lcolon Loncurly cmds Loffcurly.    (31)
+
+	.  reduce 31 (src line 131)
+
+
+state 151
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd.Lpipe cmd 
+	complex:  Lfor Lonparen sword Lin list Loffparen cmd.    (21)
+
+	Lpipe  shift 26
+	Lfanin  shift 24
+	Lfanout  shift 25
+	.  reduce 21 (src line 106)
+
+
+state 152
+	cmd:  cmd.Lfanin cmd 
+	cmd:  cmd.Lfanout cmd 
+	cmd:  cmd.Lpipe cmd 
+	complex:  Lif Lonparen expr Loffparen cmd Lelse cmd.    (23)
+
+	Lpipe  shift 26
+	Lfanin  shift 24
+	Lfanout  shift 25
+	.  reduce 23 (src line 110)
+
+
+state 153
+	case:  expr Lmatched cmda.    (39)
+
+	.  reduce 39 (src line 154)
+
+
+44 terminals, 26 nonterminals
+77 grammar rules, 154/2000 states
+0 shift/reduce, 0 reduce/reduce c

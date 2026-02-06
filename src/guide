@@ -1,0 +1,90 @@
+push -p 1 -c '{ndb/cs;  |< xargs rcmd >| sort | os uniq -c}'
+
+mkfile
+mk all
+unmount /dis && mk install
+push -v -p 1 -c '{ 
+	{echo input3; echo input2; echo input1}  |< cat >| cat #sort | os uniq -c;
+}' &
+sleep 3
+cat /prog/$apid/fd
+
+# bug in mash, a for loop is three separate writes and three separate processes.
+
+push  -p 1 -c '{ 
+	{echo input; echo input; echo input} | sort | os uniq -c;
+}' &
+sleep 3
+cat /prog/$apid/fd
+
+cpu ec2-67-202-45-102.compute-1.amazonaws.com
+	ndb/cs
+	push -p 1 -c {
+	ORS=/usr/inferno/blm.dis
+	cd /usr/inferno
+	fn map { os awk '{print $1,"sh -c \'{ tok </usr/inferno/"$2"}\'"}'<tuples }
+
+	 map |< xargs rcmd >|  {sort | os uniq -c >/dev/null} 
+}
+mk
+mkfile
+
+push -p 1 -z -c '{cat /usr/npe/testpush |< cat >| sort | os uniq -c}'
+
+
+
+push -p 1 -c '{ndb/cs; ORS=/n/local/Users/npe/Desktop/push/util/blm.dis;; {echo localhost echo worked; echo localhost echo worked2; echo localhost echo worked3} |< xargs rcmd >| sort | os uniq -c}'
+push -p 1 -c '{ndb/cs; ORS=/usr/inferno/blm.dis;cd /usr/inferno; {echo localhost echo worked; echo localhost echo worked2; echo localhost echo worked3} |< xargs rcmd >| sort | os uniq -c}'
+	push -p 1 -c '{ndb/cs; ORS=/usr/inferno/blm.dis;cd /usr/inferno; {echo echo worked; echo echo worked2} |< xargs rcmd >| cat }'
+	
+	push -p 1 -c '{ndb/cs; ORS=/usr/inferno/blm.dis;cd /usr/inferno; fn map { os awk ''{print $1,"sh -c \''{ tok </usr/inferno/"$2"}\''"}''<tuples };  map |< xargs rcmd >|  sort | os uniq -c }'
+
+	push -p 1 -c '{ndb/cs; ORS=/usr/inferno/blm.dis;cd /usr/inferno; fn map { os awk ''{print $1,"sh -c \''{ tok </usr/inferno/"$2"}\''"}''<tuples };  map |< xargs rcmd >|  {sort | os uniq -c >/dev/null} }'
+	
+time	push -p 1 -c '{ORS=/usr/inferno/blm.dis;cd /usr/inferno; fn map { os awk ''{print $1,"sh -c \''{ tok </usr/inferno/"$2"}\''"}''<tuples };  map |< xargs rcmd >|  {sort | os uniq -c >/dev/null} }'
+	
+{{cd /n/go/usr/npe/push/; unmount /dis; mk install} && push -dnsc '{ORS=/n/go/usr/npe/push/util/blm.dis; cat /tmp/testfile |< cat  |< cat >| cat >| cat}' }
+{{cd /n/go/usr/npe/push/; unmount /dis; mk install} && push -dnc '{ORS=/n/go/usr/npe/push/util/blm.dis; cat /tmp/testfile |< cat >| cat}' >/tmp/pushout }
+diff /tmp/testsort /tmp/pushout
+push -dc '{ORS=/n/go/usr/npe/push/util/blm.dis; cat /tmp/testfile |< cat }' 
+push -dc '{ORS=/n/go/usr/npe/push/util/blm.dis; echo test >| cat}' 
+push -dc '{ORS=/n/go/usr/npe/push/util/blm.dis; cat /tmp/testfile |< cat >| cat}'
+
+stack $apid
+sleep 20
+stack $apid
+
+
+
+
+# add filters to the mkfile
+# 
+# panic("str") is for bad operations
+# e.couldnot("$","ORS");
+abstract plan
+reserve resources for that plan
+then execute
+
+I need some way to keep track of all of my various environments.
+keep track of them at each stage of the pipeline?
+envs := array of list of ref Env;
+put all the sets of environments on the list?
+that is what I need to do. 
+
+
+push -dc '{mine=(hello :: goodbye); echo (tl $mine)}' 
+
+push -dc 'ORS= cat testfile |< cat >| cat'
+
+echo 'testing
+with
+strings' >/tmp/testfile
+rm testfile
+so it's taking the definition and then it's not able to load it. 
+that is interesting. 
+so what are we doing here? 
+that is a good question. 
+okay. I'm blowing the file descriptors. 
+which par of this is doing it. 
+so what are we doing here/ 
+adeb

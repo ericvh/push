@@ -1,0 +1,15 @@
+digraph pushtree {
+	size="6,6";
+"Cgroup0 -> Cseq0";
+"Cseq0 -> Cseq1";
+"Cseq1" -> "Ceq0";
+"Cseq0" -> "Cfanin0";
+"Cfanin0 -> Cfanin1";
+"Cfanin1 -> Cfanout0";
+"Cfanout0 -> Cfanout1";
+"Cfanout1 -> Csimple0";
+"Cfanout1" -> "Csimple1";
+"Cfanout0" -> "Csimple2";
+"Cfanin1" -> "Csimple3";
+"Cfanin0" -> "Csimple4";
+}

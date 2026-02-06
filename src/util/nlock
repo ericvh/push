@@ -1,0 +1,142 @@
+500399 writer 1 0123456789abcde
+500196 writer 0 0123456789abcde
+499207 writer 2 0123456789abcde
+499204 writer 3 0123456789abcde
+  26 
+  25 wr0123456789abcde
+  21 write3456789abcde
+  21 writ23456789abcde
+  21 wr789abcde
+  21 w 0123456789abcde
+  20 writeabcde
+  20 writ9abcde
+  20 w6789abcde
+  16 writer456789abcde
+  16 writer 56789abcde
+  16 writer 0de
+  16 writer 0 e
+  16 writer 0 01writer 2 0123456789abcde
+  16 writer 0 012riter 2 0123456789abcde
+  16 writer 0 012345er 2 0123456789abcde
+  16 writer 0 0123456r 2 0123456789abcde
+  16 writer 0 0123456789abcd3456789abcde
+  16 writer 0 0123456789abc23456789abcde
+  16 writer 0 0123456789 0123456789abcde
+  16 wri123456789abcde
+  15 writerbcde
+  15 writer cde
+  15 wri89abcde
+  15 wr
+  13 writer 16789abcde
+  13 writer 1 789abcde
+  13 writer 1 019abcde
+  13 writer 1 012abcde
+  13 writer 1 012345de
+  13 writer 1 0123456e
+  13 writer 1 012345678writer 3 0123456789abcde
+  13 writer 1 0123456789riter 3 0123456789abcde
+  13 writer 1 0123456789abcer 3 0123456789abcde
+  13 writer 1 0123456789abcdr 3 0123456789abcde
+  13 56789abcde
+  12 writer 0 0123iter 2 0123456789abcde
+  12 writer 0 01234ter 2 0123456789abcde
+  12 writer 0 0123456789abcde456789abcde
+  12 writer 0 0123456789ab123456789abcde
+  12 writer 0 0123456789a0123456789abcde
+  12 writer 0 01234567 2 0123456789abcde
+  12 writer 0 0
+  10 writer 1 089abcde
+  10 writer 1 0123bcde
+  10 writer 1 01234cde
+  10 writer 1 0123456789aiter 3 0123456789abcde
+  10 writer 1 0123456789abter 3 0123456789abcde
+  10 writer 1 0123456789abcde 3 0123456789abcde
+  10 writer 1 01234567
+   8 writer 0 0123456782 0123456789abcde
+   7 0123456789abcde
+   6 writer 0 012345678
+   6 3 0123456789abcde
+   6 
+   4 writer 36789abcde
+   4 writer 3 789abcde
+   4 writer 3 019abcde
+   4 writer 3 012abcde
+   4 writer 3 012345de
+   4 writer 3 0123456e
+   4 writer 3 0123456789riter 0 0123456789abcde
+   4 writer 3 0123456789abcer 0 0123456789abcde
+   4 writer 3 0123456789abcdr 0 0123456789abcde
+   4 writer 26789abcde
+   4 writer 2 789abcde
+   4 writer 2 019abcde
+   4 writer 2 012abcde
+   4 writer 2 012345de
+   4 writer 2 0123456e
+   4 writer 2 012345678writer 1 0123456789abcde
+   4 writer 2 0123456789riter 1 0123456789abcde
+   4 writer 2 0123456789abcer 1 0123456789abcde
+   4 writer 2 0123456789abcdr 1 0123456789abcde
+   4 writer 1de
+   4 writer 1 e
+   4 writer 1 01writer 3 0123456789abcde
+   4 writer 1 012riter 3 0123456789abcde
+   4 writer 1 012345er 3 0123456789abcde
+   4 writer 1 0123456r 3 0123456789abcde
+   4 writer 1 0123456789abcd3456789abcde
+   4 writer 1 0123456789abc23456789abcde
+   4 writer 1 0123456789 0123456789abcde
+   3 writer 3 089abcde
+   3 writer 3 0123bcde
+   3 writer 3 01234cde
+   3 writer 3 0123456789aiter 0 0123456789abcde
+   3 writer 3 0123456789abter 0 0123456789abcde
+   3 writer 3 0123456789abcde 0 0123456789abcde
+   3 writer 3 01234567
+   3 writer 2 089abcde
+   3 writer 2 0123bcde
+   3 writer 2 01234cde
+   3 writer 2 0123456789aiter 1 0123456789abcde
+   3 writer 2 0123456789abter 1 0123456789abcde
+   3 writer 2 0123456789abcde 1 0123456789abcde
+   3 writer 2 01234567
+   3 writer 1 0123iter 3 0123456789abcde
+   3 writer 1 01234ter 3 0123456789abcde
+   3 writer 1 0123456789abcde456789abcde
+   3 writer 1 0123456789ab123456789abcde
+   3 writer 1 0123456789a0123456789abcde
+   3 writer 1 01234567 3 0123456789abcde
+   3 writer 1 0
+   3 writer 0 012345678writer 1 0123456789abcde
+   2 writeriter 2 0123456789abcde
+   2 writer 3 012345678writer 0 0123456789abcde
+   2 writer 1 0123456783 0123456789abcde
+   2 cde
+   2 1 0123456789abcde
+   2 0 0123456789abcde
+   1 writwriter 2 0123456789abcde
+   1 writer ter 2 0123456789abcde
+   1 writer 3 012345678
+   1 writer 1 012345678cde
+   1 writer 1 012345678
+   1 writer 0er 2 0123456789abcde
+   1 writer 0 r 2 0123456789abcde
+   1 writer 0 01ter 0 0123456789abcde
+   1 writer 0 0123456789abcdebcde
+   1 writer 0 0123456789abcdabcde
+   1 writer 0 0123456789abc9abcde
+   1 writer 0 0123456789ab89abcde
+   1 writer 0 0123456789a789abcde
+   1 writer 0 01234567896789abcde
+   1 writer 0 01234567456789abcde
+   1 writer 0 01234563456789abcde
+   1 writer 0 01234523456789abcde
+   1 writer 0 01234123456789abcde
+   1 writer 0 01230123456789abcde
+   1 writer 0 012 0123456789abcde
+   1 writer 0 0 2 0123456789abcde
+   1 wri
+   1 wre
+   1 wrabcde
+   1 wde
+   1 de
+   1 3456789abcde
